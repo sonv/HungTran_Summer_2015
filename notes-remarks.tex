@@ -1,0 +1,385 @@
+\documentclass[11pt, oneside]{amsart}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex	
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{epstopdf}
+\newtheorem{prob}{Problem}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\newcommand\F{\mathbb{F}} \newcommand\E{\mathbb{E}} \newcommand\R{\mathbb{R}}
+\newcommand\Z{\mathbb{Z}} \newcommand\N{\mathbb{N}} \newcommand\C{\mathbb{C}}
+\newcommand\Q{\mathbb{Q}} \newcommand\eps{\varepsilon}
+\newcommand\cM{\mathcal{M}}	\newcommand\cA{\mathcal{A}}
+\newcommand\cC{\mathcal{C}}
+
+\title{Notes and remarks}
+\author{Son Van}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\emph{Disclaimer.} These things take some times to digest and understand the tricks/theorems/techniques. Any errors were mine, due to lack of understanding or typos.
+
+---------
+
+Notation: $\Pi^n=\R^n/\Z^n$ is the $n$-dimensional donut (torus).
+%%%%%%%%%
+\section*{Lecture 1}
+For personal reasons, I didn't attend the first lecture.
+
+%%%%%%%%%
+\section*{Lecture 2}
+Recap: homogenization.
+
+Given $\eps\to 0$. Consider the following Cauchy problem,
+\begin{equation}
+	\begin{cases}
+		u^\eps_t + H(\frac{x}{\eps}, Du^\eps)=0\\
+		u^\eps(x,0)=u_0(x)
+	\end{cases}\tag{$C_\eps$}\label{C_eps}
+\end{equation}
+
+where $H: \R^n\times\R^n \to \R$ such that
+
+\begin{enumerate}
+	\item[(H1)] $\lim_{|p|\to \infty} H(y, p) = \infty$ uniformly in $y$.
+
+	\item[(H2)] $H(y+k, p) = H(y,p)$ for $k\in \Z^n$, i.e., the $y$-coordinate is a torus.
+\end{enumerate}
+
+The question one wants to ask here is, as $\eps\to 0$, $u^\eps\to u$, do we have a simpler equation?
+
+Consider the following ansatz,
+$$u^\eps(x,t) = u(x,t) + \eps u^1(\frac{x}{\eps}) + ...$$
+
+(\ref{C_eps}) then becomes
+$$[u_t(x,t)+ O(\eps)] + H(\frac{x}{\eps}, Du(x,t)+ Du^1(\frac{x}{\eps})+ O(\eps))=0$$
+where $t$ is time variable, $x$ is spacial variable, and $y=\frac{x}{\eps}$ is fast variable.
+
+We then now make an assumption (that is not correct, but for the sake of simplicity) that $x$ and $y$ are not related, then
+
+$$u_t(x,t)+ O(\eps) + H(y, Du(x,t)+ Du^1(y)+O(\eps))=0.$$
+For small $\eps$, we essentially have the following equation
+\begin{equation}
+	u_t(x,t)+ H(y, Du(x,t)+Du^1(y))=0.
+\end{equation}
+Fix $(x,t)\in \R^n\times(0,\infty)$ and denote by $p=Du(x,t)$, $c=-u_t(x,t)$, we have the ergodic (cell) problem
+\begin{equation}
+	H(y, p + Du^1(y))=c \tag{$E_p$}
+\end{equation}
+(this is an additive eigenvalue problem-- whatever that means). (!) The part that I'm not comfortable with in this process is the word ``essentially''. How can one go from the asymptotic expansion to (1) rigorously? Or a better question, how do we know solving (1) gives us the right thing? Maybe this was explained in the first lecture... Let's try to justify this later.
+
+\begin{theorem}[Lyons-Pappanicolau-Varadhan]
+	There exists a unique $c\in \R$ such that the ergoic problem has a periodic solution $u$. Denote
+	$$c=\bar{H}(p).$$ This constant is called the effective Hamiltonian.
+\end{theorem}
+
+Before we prove this theorem, let's talk about viscosity solutions. Consider the static problem in $\R^n$,
+\begin{equation}
+	u(y)+H(Du(y), y)=0 \tag{S}
+\end{equation}
+
+The idea here is that the problem
+\begin{equation}
+	u^\eps + H(Du^\eps(y), y)=\eps\Delta u^\eps \text{ in } \R^n
+\end{equation}
+has a solution $u^\eps$.
+
+Assume that $u^\eps \to u$ locally uniformly. Take a smooth function $\phi$ such that $u-\phi$ has a strict max at $x_0$ and
+\begin{equation}
+	\begin{cases}
+		(u-\phi)(x_0)=0\\
+		u\le \phi
+	\end{cases}
+\end{equation}
+
+\begin{lemma}
+	For $\eps>0$ small enough, $u^\eps -\phi$ has a max at $x_\eps$ near by $x_0$ and there is a subsequence $\eps_j\to 0$ such that $x_{\eps_j}\to x_0$.
+\end{lemma}
+\begin{proof} Homework.
+\end{proof}
+
+We then have, of course by second derivative test,
+$$\begin{cases}
+	Du^\eps(x_\eps)=D\phi(x_\eps)\\
+	\Delta(u^\eps - \phi)(x_\eps)\le 0 \iff \Delta u^\eps(x_\eps)\le \Delta\phi(x_\eps)
+\end{cases}$$
+
+Reconsider the PDE,
+	$$u^\eps(x_\eps) + H(x_\eps, Du^\eps(x_\eps))=\eps \Delta u^\eps(x_\eps).$$
+	Thus,
+	$$u^\eps(x_\eps) + H(x_\eps, D\phi(x_\eps))\le \eps \Delta\phi(x_\eps).$$
+	Pass $\eps_j\to 0$, we then have
+	$$\phi(x_0)+ H(x_0, D\phi(x_0))\le 0.$$
+	Inspired by this derivation, we have the definition of viscosity solutions.
+	
+\begin{definition}[Subsolution]
+	$u$ is called a viscosity subsolution if for all $\phi\in C^\infty(\R^n)$ such that $(u-\phi)(x_0)$ is a strict max then $$\phi(x_0) + H(x_0, D\phi(x_0))\le 0.$$
+	
+	(Supersolution). $u$ is called a viscosity supersolution if for all $\phi\in C^\infty(\R^n)$ such that $(u-\phi)(x_0)$ is a strict min then $$\phi(x_0) + H(x_0, D\phi(x_0))\ge 0.$$
+	
+	$u$ is called a viscosity solution if it is both a subsolution and a supersolution.
+\end{definition}
+More about viscosity solutions can be found in Evans's book or last summer lecture notes.
+
+\begin{proof}[Proof of theorem]
+	For $\eps>0$, consider the following problem
+	$$\eps v^\eps(y) + H(y, P+Dv^\eps(y))=0 \text{ in } \R^n.$$
+	Claim without proof. There exists a viscosity solution $v^\eps(y)$ to the above problem.
+	
+	1st observation: if $v^\eps(y)$ is a solution then $v^\eps(y+k)$ for $k\in \Z^n$ is also a solution by periodicity.
+	
+	2nd observation: there are apriori estimates. We try to bound $v^\eps$. Take $\phi=c_1$, we have
+	$$\eps\phi + H(y, p+ D\phi(y))\le \eps c_1 + c \le 0$$
+	$$\phi = -\frac{c}{\eps} \text{ for $c>0$ large is a subsolution}.$$
+	$$\phi = \frac{c}{\eps} \text{ for $c>0$ large is a supersolution}.$$
+	Therefore, $-\frac{c}{\eps} \le v^\eps \le \frac{c}{\eps}$. So,
+	$$|\eps v^\eps|\le C$$ which implies $$H(y, p + Dv^\eps(y))\le C$$ for some different C's. Thus, $|Dv^\eps(y)|\le C'$.
+	
+	From the above estimates, $v^\eps$ is equi-Lipschitz and periodic.
+	\begin{remark}
+		At this point we want to use Arzela-Ascoli theorem. However, $v^\eps$ aren't bounded as $\eps\to0$ so we can't get the uniform bound for every $\eps$ thus Arzela-Ascoli cannot be applied here. Luckily, we have something lurking underneath so AA could be applied. 
+	\end{remark}
+	Define,
+		$$w^\eps(y)=v^\eps(y)-v^\eps(0).$$
+		We have $|Dw^\eps(y)| = |Dv^\eps(y)| \le C$ and so $|w^\eps(y)|= |v^\eps(y)-v^\eps(0)|\le C|y|$. Thus, by periodicity, $w^\eps$ is bounded. For $\eps >0$ we look at
+		$$\eps v^\eps(y) + H(y, p+Dv^\eps(y))=0 \text{ in $\R^n$}.$$
+		
+		By A-A theorem we have
+		$$w^{\eps_j}(y) \to w(y) \text{ uniformly in $\Pi^n$}$$
+		and $$ \eps_j v^{\eps_j}(0)\to -c \in \R.$$
+		Thus,
+		$$\eps_j v^{\eps_j}(y)\to -c$$ (the difference $\eps_j|v^{\eps_j}(0)-v(0)|\to 0$).
+		
+		So, $H(y, p+Dw^{\eps_j}(y))=-\eps_j v^{\eps_j}(y) \to c$. Then,
+		$$H(y, p+ Dw(y))=c.$$ (We don't have $Dw^{\eps_j}\to Dw$.)
+		
+		The uniqueness of $c$ is omitted here although was mentioned in the lecture. It requires a comparison principle was not taught due to time constraint.
+\end{proof}
+\begin{remark}
+	One should note that although $c$ is unique, the solution to cell problem is not unique in general. One of the homework is an example this claim.
+\end{remark}
+
+%%%%%%%
+\section*{Lecture 3}
+We began this lecture with a recap and motivation for viscosity solutions and effective Hamiltonian. The important question is that given the following system
+
+\begin{equation}
+	\begin{cases}
+		u^\eps_t + H(\frac{x}{\eps}, Du^\eps)=0\\
+		u^\eps(x,0)=u_0(x)
+	\end{cases}\tag{$C_\eps$}
+\end{equation}
+Do the solutions $u^\eps$ of (\ref{C_eps}) converges to a solution $u$ of
+\begin{equation}
+	\begin{cases}
+		u_t + \bar{H}(Du)=0\\
+		u(x,0)=u_0(x)
+	\end{cases}?\tag{HJ} \label{HJ}
+\end{equation}
+\begin{remark}
+	This is a natural question  since from the Hamiltonian $H(\frac{x}{\eps}, Du^\eps)$ we derived the effective Hamiltonian $\bar{H}$ that is independent of $\eps$ so as we pass $\eps\to 0$, (\ref{C_eps}) becomes (\ref{HJ}).
+\end{remark}
+The answer is yes and expressed in the following theorem
+
+%%%%%
+\begin{theorem}[Homogenization]
+	As $\eps\to 0$, $u^\eps\to u$ locally uniformly on $\R^n\times (0,\infty)$ and $u$ solves (\ref{HJ}).
+\end{theorem}
+The idea of the proof of this theorem comes from Evans's perturbed test function method. The following is a heuristic proof.
+
+\begin{lemma}
+	There is a priori estimate $$|u^\eps_t|+|Du^\eps| \le C.$$
+\end{lemma}
+\begin{proof} Notes from last year summer school.
+\end{proof}
+
+\begin{proof}[Heuristic proof]
+	Let $\phi\in C^\infty$ and $(x_0, t_0)$ is a strict maximum of $u-\phi$.
+	By Arzela-Ascoli theorem, there is a sequence $\{\eps_j\}$ such that $u^{\eps_j}\to u$ locally uniformly.
+
+	We are left to show $u$ solves (\ref{HJ}).
+
+	ASSUME EVERYTHIG IS $C^\infty$. Also, (I think we need to) assume that $H$ is Lipschitz in the $p$-coordinate.
+	
+	Let $p=D\phi(x_0, t_0)\in \R^n$. Take $v_0$ to be a solution of
+	$$H(y, p_0 + Dv(y))=\bar{H}(p_0)=\bar{H}(D\phi(x_0, t_0)).$$
+	
+	A very important observation is that $v_0$ is bounded by the coercivity assumption of $H$. Also, 
+	observe that $u^{\eps_j}(x, t) = \phi(x, t) + \eps_j v_0(\frac{x}{\eps_j})$ has a max at $(x_j, t_j)$ and $(x_j, t_j)\to (x_0, t_0)$. 
+	
+	$u^{\eps_j}$ is called the perturbed test function.
+	
+	So, by the definition of viscosity subsolutons, we have
+	
+	$$\phi_t(x_j, t_j) + H(\frac{x_j}{\eps_j}, D\phi(x_j, t_j) + Dv_0(\frac{x_0}{\eps_j}))\le 0$$
+		(Here is the point where the proof goes wrong as $v_0$ may not be differentiable at $\frac{x_j}{\eps_j}$.)
+		
+		So, $\phi_t(x_j, t_j)\to \phi_t(x_0, t_0)$ and $D\phi(x_j, t_j)\to D\phi(x_0, t_0)$. Furthermore,
+		$$|H(\frac{x_j}{\eps_j}, D\phi(x_j, t_j) + Dv_0(\frac{x_j}{\eps_j}))-H(\frac{x_j}{\eps_j}, D\phi(x_0, t_0) + Dv_0(\frac{x_j}{\eps_j})) \le C|D\phi(x_j, t_j) - D\phi(x_0, t_0)| \to 0.$$
+		
+		So, combine the 2 facts,
+		\begin{eqnarray*}
+			&&\phi_t(x_j, t_j) + H(\frac{x_j}{\eps_j}, D\phi(x_j, t_j) + Dv_0(\frac{x_0}{\eps_j}))\\ &=& \phi_t(x_j, t_j) + [H(\frac{x_j}{\eps_j}, D\phi(x_j, t_j) + Dv_0(\frac{x_0}{\eps_j})) - H(\frac{x_j}{\eps_j}, D\phi(x_0, t_0) + Dv_0(\frac{x_0}{\eps_j}))]\\ &&+ H(\frac{x_j}{\eps_j}, D\phi(x_0, t_0) + Dv_0(\frac{x_0}{\eps_j}))\\
+			&\le& 0
+		\end{eqnarray*}
+		Let $j\to 0$ we thus obtain $\phi_t(x_0, t_0) + \bar{H}(p_0)\le 0$
+\end{proof}
+
+%%%%%
+Based on the idea above plus another technique called doubling of variables, we have a real proof.
+
+%%%%%
+\begin{proof}[Rigorous proof] We perform the subsolution test. The supersolution case is similar and left as an exercise.
+
+	Suppose $u-\phi$ has a strict max at $(x_0, t_0)$.
+	
+	Assume $y\approx \frac{x}{\eps}$.
+	
+	Let $\eta >0$ small and $\eps_j$ small, then the function
+	$$\Phi^{\eps_j}=u^{\eps_j}(x,t)- \phi(x,t) -\eps_j v_0(y) - \frac{|\frac{x}{\eps} - y|^2}{\eta}$$
+	has a max at $(x_{j_\eta}, y_{j_\eta}, t_{j_\eta})$ near $(x_0, y_0, t_0)$ (here $y_0=\frac{x_0}{\eps_j}$ but we don't really care about it).
+	
+	Let $\eta\to 0$, then $(x_{j_\eta}, y_{j_\eta}, t_{j_\eta})\to (x_j, y_j, t_j)$ and $y_j=\frac{x}{\eps_j}$.
+	\begin{remark}
+	To see this,
+	\begin{eqnarray*}
+		u^{\eps_j} - \phi(x_{j_\eta}, t_{j_\eta}) - \eps_j v_0(y_{j_\eta}) - \frac{|\frac{x_{j_\eta}}{\eps_j} - y_{j_\eta}|^2}{\eta}\\
+		\ge u^{\eps_j}(x_{j_\eta}, t_{f_\eta})- \phi(x_{j_\eta}, t_{f_\eta})-\eps_j v_0(y)-\frac{|\frac{x_{j_\eta}}{\eps_j} - y|^2}{\eta}
+	\end{eqnarray*}
+	Pick $y=\frac{x_{j_\eta}}{\eps_j}$, we have
+	$$\eps_j(v_0(\frac{x_{j_\eta}}{\eps_j})-v_0(y_{j_\eta}))\ge \frac{|\frac{x_{j_\eta}}{\eps_j}-y_{j_\eta}|^2}{\eta}.$$
+	Since $v_0$ is bounded, the LHS of the above inequality is bounded. Thus, at the limit, we have $\frac{x_j}{\eps_j}=y_j$.
+	\end{remark}
+	
+	(Note: $u^{\eta_j}(x_0, t_0) - \phi(x_0, t_0) - \eps_j v_0(y_0) \ge -c$ for some $c$-- I honestly don't see the usefulness of this fact.)
+	
+	Let $j\to \infty$ then $\eps_j\to 0$ then $(x_j, t_j)\to (x_0, t_0)$-- (?) why.
+	
+	Fix $y=y_{j_\eta}$ then
+	
+	$$(x,t)\mapsto \Phi(x, y_{j_\eta}, t)$$ has a max at $(x_{j_\eta}, t_{j_\eta})$.
+	So, $$(x,t)\mapsto u^{\eps_j}(x,t) - \phi(x,t) - \frac{|\frac{x}{\eps_j} - y_{j_\eta}|^2}{\eta}$$ has a max at $(x_{j_\eta}, t_{j_\eta})$. Again, we have $u^{\eps_j}_t + H(\frac{x}{\eps_j}, Du^{\eps_j})=0$. Then by definition of viscosity subsolution,
+	$$\phi_t(x_{j_\eta}, t_{j_\eta})+ H(\frac{x_{j_\eta}}{\eps_j}, D\phi(x_{j_\eta}, t_{j_\eta})+ \frac{\frac{2}{\eps_j}(\frac{x_{j_\eta}}{\eps_j} - y_{j_\eta})}{\eta})\le 0.$$
+	
+	Now, fix $(x_{j_\eta}, t_{j_\eta})$,
+	$$y\mapsto \Phi(x_{j_\eta}, y, t_{j_\eta})$$ has a max at $y_{j_\eta}$. So,
+	$$y\mapsto -\eps_j v_0(y) - \frac{|\frac{x}{\eps} - y|^2}{\eta}$$ has a max at $y_{j_\eta}$. So,
+	$$y\mapsto \eps_j v_0(y) + \frac{|\frac{x}{\eps} - y|^2}{\eta}$$ has a min at $y_{j_\eta}$. Therefore,
+	$$H(y_{j_\eta}, p_0 + D(-\frac{|\frac{x}{\eps} - y|^2}{\eta})) \ge \bar{H}(p_0),$$ which is the same as
+	$$H(y_{j_\eta}, p_0 +\frac{2(\frac{x_{j_\eta}}{\eps_j} - y_{j_\eta})}{\eps_j \eta})\ge \bar{H}(p_0).$$
+	Pass $\eta\to 0$ we have $\frac{\frac{2}{\eps_j}(\frac{x_{j_\eta}}{\eps_j} - y_{j_\eta})}{\eta}\to q$, so
+	$$\phi_t(x_{j}, t_{j})+ H(\frac{x_{j}}{\eps_j}, D\phi(x_{j}, t_{j})+ q)\le 0$$
+	and 
+	$$H(y_{j}, p_0)\ge \bar{H}(p_0+q).$$
+	Combine the 2 inequalities as passing $j\to 0$, we have
+	$$\phi_t(x_0, t_0)+ \bar{H}(p_0)\le 0.$$
+\end{proof}
+\begin{remark}
+The deep part of this proof is that it passes the indifferentiability of $v_0$ to a test smooth function $\phi$. This part is achieved by introducing the variable $y$.
+\end{remark}
+
+\section*{Lecture 4}
+In this lecture, we study the properties of the effective Hamiltonian, $\bar{H}$.
+
+We start with the following homework question:
+\begin{proposition}
+	Suppose $H\in Lip(\R^n\times\R^n)$ satisfies (H1)-(H2), i.e. coercivity and periodicity in $y$-coordinate. Then $\bar{H}$ is Lipschitz and coercive. 
+\end{proposition}
+
+We want to understand $\bar{H}$ qualitatively, quantitatively and numerically.
+
+Consider,
+\begin{equation}
+	\begin{cases}
+		w_t(y,t) + H(y, p + Dw)=0 \text{ in $\R^n\times (0,\infty)$}\\
+		w(y,0) = 0 \text{ on $\R^n$}
+	\end{cases}.
+\end{equation}
+
+%%%%%%
+\begin{proposition}
+	$\lim_{t\to\infty} \frac{w(y,t)}{t}=-\bar{H}(p)$.
+\end{proposition}
+
+\begin{proof}
+We try to bound the solution, $\text{subsolution} \le w(y,t) \le \text{supersolution}$.
+Let $v$ be the solution to the cell problem
+$$H(y, p+ Dv(y) = \bar{H}(p).$$
+Denote $\phi^+(y,t)=v(y) + c -\bar{H}(p)t$ and $\phi^-(y,t)=v(y) - c -\bar{H}(p)t$. We have
+$$\phi^+_t(y,t) + H(y, p + D\phi^+(y,t))= -\bar{H}(p) + H(y, p + Dv(y))=0.$$
+For $t=0$, 
+$\phi^+(y,0)=v(y)+c \ge 0$ and $\phi^-(y,0)\le 0$ for $c$ large enough. So, they are super- and sub-solutions, i.e.
+$$v(y)-c-\bar{H}(p)t = \phi^-(y,t) \le w(y,t) \le \phi^+(y,t) = v(y) + c -\bar{H}(p)t$$
+and, therefore,
+$\frac{v(y)-c}{t}-\bar{H}(p)\le \frac{w(y,t)}{t} \le\frac{v(y)+c}{t}-\bar{H}(p).$
+\end{proof}
+\begin{remark}
+	Finding $\bar{H}$ numerically is extremely hard.
+\end{remark}
+--------
+%%%%%%%%
+
+We now switch gear to find some representations for $\bar{H}$. We already knew 2, one is from the definition, another one is right above as the negative of large time average of the solution of (4). The third one is the following,
+\begin{proposition}
+	$$\bar{H}(p)=\inf\{ c \in \R: \exists \text{ viscosity } v\in C(\Pi), H(y, p+Dv)\le c \text{ in }\Pi^n\}.$$
+\end{proposition}
+\begin{proof}
+There exists $v\in Lip(\Pi)$ such that
+$$H(y, p + Dv(y))=\bar{H}(p) \text{ in $\Pi^n$.}$$
+Therefore, $\bar{H}(p)\ge RHS$. We then want to show that $\bar{H}(p)\le RHS$. By way of contradiction, assume that $A<\bar{H}(p)$. That implies there exists $c\le \bar{H}(p)$ such that there exists $w\in C(\Pi^n)$ so that
+$$H(y, p+ Dw)\le c < \bar{H}(p)=H(y, p+ Dv).$$
+Take $\eps>0$ small,
+$$\eps w + H(y, p+ Dw)\le \frac{c+\bar{H}(p)}{2} \le \eps v + H(y, p+ Dv).$$
+Therefore, $w\le v$ in $\Pi^n$, a contradiction since we can always add a constant to make $w>v$.
+\end{proof}
+
+%%%%%%%
+\begin{proposition}
+	Assume $p\mapsto H(y,p)$ is convex. Then
+	\begin{enumerate}
+	\item $p\mapsto \bar{H}(p)$ is also convex.
+	
+	\item $$ \bar{H}(p)=\inf_{\phi\in C^1(\Pi^n)} \sup_{y\in \Pi^n} H(y, p+D\phi(y)).$$
+	(This is called $\inf-\sup$ formula.)
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+The first part is left as a homework.
+
+We proceed to the second part.
+
+Denote the formula in the previous proposition to be $A$.
+Take $\phi \in C^1(\Pi^n)$, let $c=\max_{y\in \Pi^n} H(y, p + D\phi(y))$. So, $H(y, p+D\phi(y)) \le c$ in $\Pi^n$ and $c$ is admisible in the formula of $A$. Therefore, $RHS\ge A=\bar{H}(p)$. We want to show that $RHS\le \bar{H}(p)=H(y, p + Dv(y))$ in $\Pi^n$.
+
+Note that $v$ is only Lipschitz so to make it smooth we convolute it. Take $\phi\in C^\infty_c(\R^n)$, $\phi \ge 0$ and $\int_{\R^n} \phi =1$. Let $\phi^\eps =\frac{1}{\eps^n} \phi(\frac{1}{\eps}) \to \int_{\R^n}\phi^\eps(x)=1$.
+
+Take $v^\eps(x)=(\phi^\eps * v)(x)=\int \phi^\eps(x-y)v(y)dy$. We have
+\begin{eqnarray*}
+	\bar{H}(p) &=& H(y, p+Dv(y))\\
+			&=& \int_{\R^n} H(y, p + Dv(y))\phi^\eps(x-y)dy\\
+			&=& \int_{B(x, c\eps)} H(y, p+ Dv(y))\phi^\eps(x-y)dy\\
+			&\ge& \int_{B(x,c\eps)} H(y, p + Dv(y))\phi^\eps(x-y)dy -c\eps\\
+			&\overset{\text{by Jensen ineq and convexity in $p$ of $H$}}\ge& H(y,\int_{B(x,c\eps)}(p+Dv(y))\phi^\eps(x-y)dy) - c\eps\\
+			&=& H(y, p+Dv^\eps(y))-c\eps
+\end{eqnarray*}
+Thus, $\bar{H}(p)+c\eps \ge H(y, p+ Dv^\eps(y))$. But $v^\eps \in C^\infty \subseteq C^1$, thus,
+$$\sup_{y\in\Pi^n} H(y,p+ Dv^\eps(y))\ge \inf_{\phi\in C^1} \sup_{y\in\Pi^n}H(y, p+D\phi(y)).$$
+Pass $\eps\to0$ we get what we want.
+\end{proof}
+
+We then discuss some open problems and research directions, which I omit in the notes.
+\end{document}  
