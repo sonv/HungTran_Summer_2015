@@ -1,10 +1,10 @@
 \documentclass[12pt, oneside]{amsart}  	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ...
 %\geometry{landscape}                		% Activate for for rotated page geometry
 %\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex	
+								% TeX will automatically convert eps --> pdf in pdflatex
 \usepackage{pgfplots}
 \usepackage{amsmath}
 \usepackage{mathtools}
@@ -56,11 +56,11 @@
 
 \usetikzlibrary{arrows}
 
-\title{Homogenization of Hamilton-Jacobi equations\\ 
+\title{Homogenization of Hamilton-Jacobi equations\\
 Notes and remarks}
 \author{Son Nguyen Thai Tu}
-\address[S. Tu]{Department of Mathematics, University of Sciences at Ho Chi Minh City}
-\email[S.~Tu]{thaison.tn93@gmail.com}
+\address[S. Tu]{Department of Mathematics, University of Wisconsin at Madison}
+\email[S.~Tu]{thaison@math.wisc.edu}
 
 \author{Son Phung Truong Van}
 \address[S. Van]{Department of Mathematical Sciences, Carnegie Mellon University}
@@ -145,11 +145,11 @@ We want to understand (\ref{eq}) as $\varepsilon\longrightarrow 0$. Is there som
 
 \paragraph{\textbf{Assumptions.}} The following assumptions are extremely important:
 \begin{itemize}
-\item[(H1)] (coercivity) 
+\item[(H1)] (coercivity)
 \begin{equation*}
 \lim_{|p|\longrightarrow\infty} H(y,p) = \infty \qquad\text{uniformly in}\;y,
 \end{equation*}
-\item[(H2)] (periodicity) 
+\item[(H2)] (periodicity)
 \begin{equation*}
 H(y+k,p) = H(y,p) \qquad\forall\;k\in \mathbb{Z}^n.
 \end{equation*}
@@ -171,7 +171,7 @@ We consider some ansatzs\footnote{The word \textit{Ansatz} in German is some thi
 \item[(1)] $u^\varepsilon(x,t) = u(x,t)+\varepsilon u^1\left(x,\frac{x}{\varepsilon},t\right) + \varepsilon^2 u^2\left(x,\frac{x}{\varepsilon},t\right) + \ldots$ \vspace*{0.5cm}
 \item[(2)] $u^\varepsilon(x,t) = u\left(x,\frac{x}{\varepsilon},t\right) + \varepsilon u^1\left(x,\frac{x}{\varepsilon},t\right) + \ldots$.
 \vspace*{0.5cm}
-\item[(3)] $u^\varepsilon(x,t) = u\left(x,t\right) + \varepsilon^5 u^1\left(\frac{x}{\varepsilon},t\right) + \ldots$. 
+\item[(3)] $u^\varepsilon(x,t) = u\left(x,t\right) + \varepsilon^5 u^1\left(\frac{x}{\varepsilon},t\right) + \ldots$.
 \vspace*{0.5cm}
 \item[(4)] $u^\varepsilon(x,t) = u(x,t)+\varepsilon u^1\left(\frac{x}{\varepsilon},t\right) + \varepsilon^2 u^2\left(\frac{x}{\varepsilon},t\right) + \ldots$
 \end{itemize}
@@ -180,7 +180,7 @@ Now using (4), we have
 u^\varepsilon(x,t) &= u(x,t)+\varepsilon u^1\left(\frac{x}{\varepsilon},t\right) + \varepsilon^2 u^2\left(\frac{x}{\varepsilon},t\right) + \ldots \\
 Du^\varepsilon(x,t) &= Du(x,t)+Du^1\left(\frac{x}{\varepsilon},t\right) + \varepsilon Du^2\left(\frac{x}{\varepsilon},t\right) + \ldots
 \end{align*}
-Plugging these into (\ref{II}) we have 
+Plugging these into (\ref{II}) we have
 \begin{equation*}
 \left[u_t^\varepsilon(x,t) + \varepsilon u^1_t\left(\frac{x}{\varepsilon},t\right) + \ldots \right] + H\left( \frac{x}{\varepsilon}, Du(x,t)+Du^1\left(\frac{x}{\varepsilon},t\right) + \varepsilon Du^2\left(\frac{x}{\varepsilon},t\right) + \ldots\right)=0.
 \end{equation*}
@@ -192,7 +192,7 @@ Denote $y = \frac{x}{\varepsilon}$, we obtain
 \begin{equation*}
 u_t(x,t) + H\Big(y,Du(x,t) + Du^1(y,t)\Big) = 0.
 \end{equation*}
-Now, fix $(x,t)\in \mathbb{R}^n\times(0,\infty)$, since $u_t(x,t)$ is a constant w.r.t $y$, 
+Now, fix $(x,t)\in \mathbb{R}^n\times(0,\infty)$, since $u_t(x,t)$ is a constant w.r.t $y$,
 $$H(y,Du(x,t) + Du^1(y,t))$$
 is expected to be a constant w.r.t $y$, i.e.,
 \begin{equation*}
@@ -227,7 +227,7 @@ Do the solutions $u^\eps$ of (\ref{C_eps}) converges to a solution $u$ of
 	\begin{cases}
 		u_t + \overline{H}(Du)=0\\
 		u(x,0)=u_0(x)
-	\end{cases}?\tag{HJ} 
+	\end{cases}?\tag{HJ}
 \end{equation}
 \begin{remark} This is a natural question  since from the Hamiltonian $H(\frac{x}{\eps}, Du^\eps)$ we derived the effective Hamiltonian $\overline{H}$ that is independent of $\eps$ so as we pass $\eps\to 0$, (\ref{C_eps}) should become (\ref{HJ}). The answer to this problem is ``yes'' and will be elaborated in lecture 3.
 \end{remark}
@@ -249,11 +249,11 @@ Before we prove theorem \ref{theorem1}, let's talk about viscosity solutions. \v
 
 Consider
 \begin{itemize}
-\item The static problem 
+\item The static problem
 \begin{equation}\label{S}
 	u(y)+H(y,Du(y))=0 \tag{S}.
 \end{equation}
-\item The Cauchy problem 
+\item The Cauchy problem
 \begin{equation}\label{C}
 \begin{cases}
 u_t(x,t) + H(y,Du(x,t)) = 0 &\qquad\text{in}\;\mathbb{R}^n\times (0,\infty)\\
@@ -300,12 +300,12 @@ Let $\eps_j\to 0$, we then have
 u(x_0)+ H(x_0, D\phi(x_0))\le 0.
 \end{equation*}
 Inspired by this derivation, we have the definition of viscosity solutions.
-	
+
 \begin{definition} [Definition of viscosity solution for the static equation] Assume $u$ is continuous on its domain
 \begin{itemize}
-\item (Subsolution) $u$ is called a viscosity subsolution if for all $\phi\in C^\infty(\R^n)$ such that $(u-\phi)(x_0)$ is a strict max then 
+\item (Subsolution) $u$ is called a viscosity subsolution if for all $\phi\in C^\infty(\R^n)$ such that $(u-\phi)(x_0)$ is a strict max then
 $$u(x_0) + H(x_0, D\phi(x_0))\le 0.$$
-\item (Supersolution) $u$ is called a viscosity supersolution if for all $\phi\in C^\infty(\R^n)$ such that $(u-\phi)(x_0)$ is a strict min then 
+\item (Supersolution) $u$ is called a viscosity supersolution if for all $\phi\in C^\infty(\R^n)$ such that $(u-\phi)(x_0)$ is a strict min then
 $$u(x_0) + H(x_0, D\phi(x_0))\ge 0.$$
 \item $u$ is called a viscosity solution if it is both a subsolution and a supersolution.
 \end{itemize}
@@ -319,7 +319,7 @@ $$u(x_0) + H(x_0, D\phi(x_0))\ge 0.$$
 \begin{definition} Let $u$ be a real valued function defined on the open set $\Omega \subset \mathbb{R}^n$. For any $x\in \Omega$, the sets
 \begin{align*}
 D^-u(x) &= \left\lbrace p\in \mathbb{R}^n: \liminf_{y\longrightarrow x} \frac{u(y) - u(x) - \langle p,y-x\rangle}{\Vert y-x\Vert} \geq 0 \right\rbrace \\
-D^+u(x) &= \left\lbrace p\in \mathbb{R}^n: \limsup_{y\longrightarrow x} \frac{u(y) - u(x) - \langle p,y-x\rangle}{\Vert y-x\Vert} \leq 0 \right\rbrace 
+D^+u(x) &= \left\lbrace p\in \mathbb{R}^n: \limsup_{y\longrightarrow x} \frac{u(y) - u(x) - \langle p,y-x\rangle}{\Vert y-x\Vert} \leq 0 \right\rbrace
 \end{align*}
 are called, respectively the \textbf{subdifferential} and \textbf{superdifferential} of $u$ at $x$.
 \end{definition}
@@ -459,7 +459,7 @@ f(y) \leq f(x) + \langle p,y-x\rangle + \Vert y-x\Vert \sigma(\Vert y-x\Vert)
 \end{equation}
 for $\Vert y-x\Vert < \delta$. Define
 \begin{equation*}
-\rho(r) = \int_{0}^r \sigma(t)\;dt 
+\rho(r) = \int_{0}^r \sigma(t)\;dt
 \end{equation*}
 then
 \begin{equation*}
@@ -469,7 +469,7 @@ Now for $y\in B(x,\delta)$ we set
 \begin{equation*}
 \varphi(y) = f(x) + \langle p,y-x\rangle + \rho(2\Vert y-x\Vert).
 \end{equation*}
-Since $f(x) = \varphi(x)$, clearly $\varphi$ is differentiable. Furthermore, because 
+Since $f(x) = \varphi(x)$, clearly $\varphi$ is differentiable. Furthermore, because
 \begin{equation*}
 \sigma(r)\leq\frac{\rho(2\Vert y-x\Vert)}{\Vert y-x\Vert}  \leq \sigma(2\Vert y-x\Vert)
 \end{equation*}
@@ -506,7 +506,7 @@ Since $\psi, \varphi\in C^1(\Omega)$, it's easy to see that $f$ is also differen
 \begin{equation*}
 \varphi(x) = \frac{1}{\varepsilon^2 - \Vert x-x_0\Vert^2} \qquad x\in B(x_0,\varepsilon).
 \end{equation*}
-It's easy to extend $\varphi$ into a function in $C^1(\Omega)$. Also observe that 
+It's easy to extend $\varphi$ into a function in $C^1(\Omega)$. Also observe that
 \begin{equation*}
 \varphi(x) \longrightarrow +\infty \qquad\text{as}\qquad \Vert x-x_0\Vert\longrightarrow \varepsilon.
 \end{equation*}
@@ -571,7 +571,7 @@ H(y,Du^\varepsilon(y)) = \varepsilon \Delta u^\varepsilon(y).
 by the method adding small viscosity.
 \end{remark}
 
-\begin{example}[Eikonal's equation] 
+\begin{example}[Eikonal's equation]
 Let $H$ denote the Hamiltonian, $H(u,p) = |p|$ in $\mathbb{R}$, consider the Eikonal's equations
 \begin{equation*}
 \begin{cases}
@@ -627,7 +627,7 @@ We can see that there are infinite many solutions (in weak sense) of this proble
 
 
 \end{example}
-\begin{proof}[\textbf{Finding a viscosity solution}] We already know this equation has infinitely many solutions. Consider a solution $u$ that its graph contains a $\bigvee$ shape, for example 
+\begin{proof}[\textbf{Finding a viscosity solution}] We already know this equation has infinitely many solutions. Consider a solution $u$ that its graph contains a $\bigvee$ shape, for example
 
 \begin{center}
 \begin{tabular}{cc}
@@ -658,11 +658,11 @@ We can see that there are infinite many solutions (in weak sense) of this proble
 \begin{align*}
 D^+u\left(\frac{1}{2}\right) = \emptyset \quad;\quad D^-u\left(\frac{1}{2}\right) = [-1,1].
 \end{align*}
-Thus, if $u$ is a viscosity supersolution then 
+Thus, if $u$ is a viscosity supersolution then
 \begin{equation*}
 \forall\;p\in D^-u\left(\frac{1}{2}\right): |p|-1\geq 0.
 \end{equation*}
-It's contradiction. 
+It's contradiction.
 \end{minipage}
 \end{tabular}
 
@@ -747,7 +747,7 @@ If we choose $\phi = c_1 = \frac{C}{\varepsilon}$ then
 \begin{equation*}
 \varepsilon \phi + H(y,p+D\phi(y)) = \varepsilon c_1 + H(y,p) \geq \varepsilon c_1 - C =0.
 \end{equation*}
-Thus we obtain 
+Thus we obtain
 \begin{align*}
 \phi = -\frac{C}{\eps}\quad &\text{ for $C>0$ large is a subsolution}, \\
 \phi = \frac{C}{\eps}\quad &\text{ for $C>0$ large is a supersolution}.
@@ -756,7 +756,7 @@ Therefore since $v^\varepsilon$ is a solution, we get
 \begin{equation*}
 -\frac{C}{\eps} \le v^\eps \le \frac{C}{\eps} \qquad\Longrightarrow\qquad |\varepsilon v^\varepsilon| \leq C,
 \end{equation*}
-which implies 
+which implies
 \begin{equation*}
 |H(y, p + Dv^\eps(y))|\le C \qquad\forall\;y.
 \end{equation*}
@@ -772,12 +772,12 @@ v^\varepsilon \in \text{Lip}(\mathbb{T}^n)\qquad\text{and}\qquad \Vert Dv^\varep
 \end{equation*}
 
 \begin{remark}
-At this point we want to use Arzela-Ascoli theorem. However, $v^\eps$ aren't bounded as $\eps\to0$ so we can't get the uniform bound for every $\eps$ thus Arzela-Ascoli cannot be applied here. Luckily, we have something lurking underneath so Arzela-Ascoli theorem could be applied. 
+At this point we want to use Arzela-Ascoli theorem. However, $v^\eps$ aren't bounded as $\eps\to0$ so we can't get the uniform bound for every $\eps$ thus Arzela-Ascoli cannot be applied here. Luckily, we have something lurking underneath so Arzela-Ascoli theorem could be applied.
 \end{remark}
 
 Define
 		$$w^\eps(y)=v^\eps(y)-v^\eps(0).$$
-We have $|Dw^\eps(y)| = |Dv^\eps(y)| \le C'$ and so 
+We have $|Dw^\eps(y)| = |Dv^\eps(y)| \le C'$ and so
 \begin{equation*}
 |w^\eps(y)|= |v^\eps(y)-v^\eps(0)|\le C'|y| \leq C'\sqrt{n}
 \end{equation*}
@@ -800,27 +800,27 @@ Now look at
 It becomes
 \begin{equation}\label{my_eqn}
 \varepsilon_{j}
-w^{\varepsilon_{j}}\left(y\right) + 
+w^{\varepsilon_{j}}\left(y\right) +
 \varepsilon_{j} v^{\varepsilon_{j}}(0) +
 H(y,p+ Dw^{\varepsilon_{j}}(y)) = 0.
 \end{equation}
 \vspace*{0.1cm}
 
-\paragraph{\textbf{$4^{\text{th}}$ observation:}} Now we claim that 
+\paragraph{\textbf{$4^{\text{th}}$ observation:}} Now we claim that
 \begin{equation}\label{final_my_eqn}
 H(y, p+ Dw(y))=c
 \end{equation}
 in the viscosity sense.
-(We don't have $Dw^{\eps_j}\to Dw$.). Indeed, 
+(We don't have $Dw^{\eps_j}\to Dw$.). Indeed,
 \begin{itemize}
-\item Sub-test: Fix $x\in \mathbb{R}^n$ and let $\varphi\in C^\infty(\mathbb{R}^n)$ such that 
+\item Sub-test: Fix $x\in \mathbb{R}^n$ and let $\varphi\in C^\infty(\mathbb{R}^n)$ such that
 \begin{equation*}
 \begin{cases}
 (w - \varphi)(x) &= 0\\
 \qquad w - \varphi &<0 \;\text{else where}\quad \text{i.e,}\; w-\varphi\;\text{has a strict max at}\; x
 \end{cases}.
 \end{equation*}
-Since $w^{\varepsilon_j}\longrightarrow w$ uniformly on some compact neighborhood of $x$, there exists a subsequence $\{j_k\}$ such that 
+Since $w^{\varepsilon_j}\longrightarrow w$ uniformly on some compact neighborhood of $x$, there exists a subsequence $\{j_k\}$ such that
 \begin{equation*}
 \begin{cases}
 w^{\varepsilon_{j_k}} - \varphi \;\text{has a max at}\; x_{\varepsilon_{j_k}}\;\text{near}\;x\\
@@ -831,23 +831,23 @@ w^{\varepsilon_{j_k}}\left(x_{\varepsilon_{j_k}}\right) \longrightarrow w(x) \;\
 Look at \eqref{my_eqn}, in viscosity sense, we must have
 \begin{equation*}
 \varepsilon_{j_k}
-w^{\varepsilon_{j_k}}\left(x_{\varepsilon_{j_k}}\right) + 
+w^{\varepsilon_{j_k}}\left(x_{\varepsilon_{j_k}}\right) +
 \varepsilon_{j_k} v^{\varepsilon_{j_k}}(0) +
 H(x_{\varepsilon_{j_k}},p+ D\varphi^{\varepsilon_{j_k}}(x_{\varepsilon_{j_k}})) \leq 0.
 \end{equation*}
-Now let $k\longrightarrow \infty$ we obtain 
+Now let $k\longrightarrow \infty$ we obtain
 \begin{equation*}
 -c + H(x,p+D\varphi(x)) \leq 0 \Longleftrightarrow H(x,p+D\varphi(x)) \leq c.
 \end{equation*}
 Thus, $w$ is a viscosity subsolution of \eqref{final_my_eqn}.
-\item Super-test: Fix $x\in \mathbb{R}^n$ and let $\varphi\in C^\infty(\mathbb{R}^n)$ such that 
+\item Super-test: Fix $x\in \mathbb{R}^n$ and let $\varphi\in C^\infty(\mathbb{R}^n)$ such that
 \begin{equation*}
 \begin{cases}
 (w - \varphi)(x) &= 0\\
 \qquad w - \varphi &>0 \;\text{else where}\quad \text{i.e,}\; w-\varphi\;\text{has a strict min at}\; x
 \end{cases}.
 \end{equation*}
-Since $w^{\varepsilon_j}\longrightarrow w$ uniformly on some compact neighborhood of $x$, there exists a subsequence $\{j_k\}$ such that 
+Since $w^{\varepsilon_j}\longrightarrow w$ uniformly on some compact neighborhood of $x$, there exists a subsequence $\{j_k\}$ such that
 \begin{equation*}
 \begin{cases}
 w^{\varepsilon_{j_k}} - \varphi \;\text{has a min at}\; x_{\varepsilon_{j_k}}\;\text{near}\;x\\
@@ -858,11 +858,11 @@ w^{\varepsilon_{j_k}}\left(x_{\varepsilon_{j_k}}\right) \longrightarrow w(x) \;\
 Look at \eqref{my_eqn}, in viscosity sense, we must have
 \begin{equation*}
 \varepsilon_{j_k}
-w^{\varepsilon_{j_k}}\left(x_{\varepsilon_{j_k}}\right) + 
+w^{\varepsilon_{j_k}}\left(x_{\varepsilon_{j_k}}\right) +
 \varepsilon_{j_k} v^{\varepsilon_{j_k}}(0) +
 H(x_{\varepsilon_{j_k}},p+ D\varphi^{\varepsilon_{j_k}}(x_{\varepsilon_{j_k}})) \geq 0.
 \end{equation*}
-Now let $k\longrightarrow \infty$ we obtain 
+Now let $k\longrightarrow \infty$ we obtain
 \begin{equation*}
 -c + H(x,p+D\varphi(x)) \geq 0 \Longleftrightarrow H(x,p+D\varphi(x)) \geq c.
 \end{equation*}
@@ -871,7 +871,7 @@ Thus, $w$ is a viscosity supersolution of \eqref{final_my_eqn}.
 Thus, $w$ is a viscosity solution of \eqref{final_my_eqn}. It's clearly periodic.\\
 
 
-\paragraph{\textbf{The uniqueness of $c$:}} Assume that there exists $(v_1,c_1)$ and $(v_2,c_2)$ where $c_1<c_2$ 
+\paragraph{\textbf{The uniqueness of $c$:}} Assume that there exists $(v_1,c_1)$ and $(v_2,c_2)$ where $c_1<c_2$
 
 \begin{equation*}
 H(y,p+Dv_1(y)) = c_1 < c_2 = H(y,p+Dv_2(y)) \qquad\text{in}\;\mathbb{R}^n.
@@ -962,7 +962,7 @@ The idea of the proof of this theorem comes from Evans's perturbed test function
 
 \paragraph{\textbf{Proof of theorem} \ref{theorem2}} Using above priori estimate, we deduce by Arzela-Ascoli theorem there exists a sequence $\{\varepsilon_j\} \searrow 0$ such that $u^{\eps_j}\to u$ locally uniformly. We are left to show $u$ solves (\ref{quation_C}).\\
 
-\paragraph{\textbf{Sub-test.}} One might be tempted to take the following approach. 
+\paragraph{\textbf{Sub-test.}} One might be tempted to take the following approach.
 
 \paragraph{\textbf{Failed attempt.}}
 Let $\phi\in C^\infty$ and $(x_0, t_0)\in \mathbb{R}^n\times (0,\infty)$ is a strict maximum of $u-\phi$. We want to show that
@@ -973,7 +973,7 @@ By exercise \ref{exercise1} we have $u^{\varepsilon_j} - \phi$ has a max at $(x_
 \begin{equation*}
 \phi_t(x_j,t_j) + H\left(\frac{x_j}{\varepsilon_j}, D\phi(x_j,t_j)\right) \leq 0.
 \end{equation*}
-As $j\longrightarrow \infty$, we have $\phi_t(x_j,t_j)\longrightarrow \phi(x_0,t_0)$. However, the catch is that we're not sure about the term 
+As $j\longrightarrow \infty$, we have $\phi_t(x_j,t_j)\longrightarrow \phi(x_0,t_0)$. However, the catch is that we're not sure about the term
 
 $$H\left(\frac{x_j}{\varepsilon_j}, D\phi(x_j,t_j)\right)$$ converges to $$\overline{H}(D\phi(x_0,t_0))$$
 
@@ -996,7 +996,7 @@ and $(x_j,t_j)\longrightarrow (x_0,t_0)$ as $j\longrightarrow \infty$. The funct
 \begin{equation*}
 \phi_t(x_j, t_j) + H\left(\frac{x_j}{\eps_j}, D\phi(x_j, t_j) + Dv_0\left(\frac{x_j}{\eps_j}\right)\right)\leq 0.
 \end{equation*}
-Also observe that 
+Also observe that
 \begin{align*}
 \phi_t(x_j, t_j) &\longrightarrow \phi_t(x_0, t_0),\\
 D\phi(x_j, t_j)&\longrightarrow  D\phi(x_0, t_0).
@@ -1015,7 +1015,7 @@ From \eqref{assume v is smooth solution of cell Ep0} we have
 \begin{equation*}
 H\left(\frac{x_j}{\eps_j}, D\phi(x_0, t_0) + Dv_0\left(\frac{x_j}{\eps_j}\right)\right) = \overline{H}(D\phi(x_0,t_0)) = \overline{H}(p_0).
 \end{equation*}
-Thus let $j\longrightarrow 0$ in the former formula we thus obtain 
+Thus let $j\longrightarrow 0$ in the former formula we thus obtain
 \begin{equation*}
 \phi_t(x_0, t_0) + \overline{H}(p_0)\le 0.
 \end{equation*}
@@ -1051,7 +1051,7 @@ Since $v_0$ is bounded, the function $\Phi^{\eps_{j_\eta}}$ is continuous and bo
 \begin{equation*}
 \alpha_{\varepsilon_j,\eta}\quad  = \sup_{ \overline{\Omega}\times\mathbb{R}^n\times [0,T]} \Phi^{\varepsilon_j,\eta} (x,y,t).
 \end{equation*}
-Then there exists some sequence $(x_m,y_m,t_m)\in \overline{\Omega}\times\mathbb{R}^n\times [0,T]$ such that 
+Then there exists some sequence $(x_m,y_m,t_m)\in \overline{\Omega}\times\mathbb{R}^n\times [0,T]$ such that
 \begin{equation*}
 \Phi^{\varepsilon_j, \eta}(x_m,y_m,t_m)\longrightarrow \alpha_{\varepsilon_j,\eta}.
 \end{equation*}
@@ -1077,10 +1077,10 @@ Note, also, that $y_{j\eta}\approx \frac{x_{j\eta}}{\eps_j}$ because of the pena
 \begin{equation*}
 \left(x_{j\eta},t_{j\eta}\right)\longrightarrow \left(x_j,t_j\right)\qquad\text{as}\qquad \eta\longrightarrow 0.
 \end{equation*}
-We claim that as $\eta\longrightarrow 0$, then 
+We claim that as $\eta\longrightarrow 0$, then
 \begin{equation} \label{limit of xjn,yjn,tjn}
 \left(x_{j\eta}, y_{j\eta}, t_{j\eta}\right)\longrightarrow \left(x_j, y_j, t_j\right) \qquad\text{and}\qquad y_j=\frac{x_j}{\eps_j}.
-\end{equation} 
+\end{equation}
 To see that, we observe that
 \begin{equation*}
 \Phi^{\varepsilon_{j_\eta}}\left(x_{j_\eta}, y_{j_\eta}, t_{j_\eta}\right) \;\geq\; \Phi^{\varepsilon_{j_\eta}}\left(x_{j_\eta}, y, t_{j_\eta}\right) \qquad\forall \;y \in \mathbb{R}^n.
@@ -1089,19 +1089,19 @@ This is equivalent to
 \begin{equation*}
 \varepsilon_j v_0\left(y\right) + \frac{\left|\frac{x_{j_\eta}}{\varepsilon_j} - y\right|}{\eta} \;\geq\; \varepsilon_j v_0\left(y_{j_\eta}\right) + \frac{\left|\frac{x_{j_\eta}}{\varepsilon_j} - y_{j_\eta} \right|}{\eta}.
 \end{equation*}
-Thus if we choose $y = \frac{x_{j_\eta}}{\varepsilon_j}$, then it becomes 
+Thus if we choose $y = \frac{x_{j_\eta}}{\varepsilon_j}$, then it becomes
 \begin{align*}
 \varepsilon_j\left[v_0\left(\frac{y_{j_\eta}}{\varepsilon_j}\right) - v_0\left(y_{j_\eta}\right)\right] \geq \frac{\left|\frac{x_{j_\eta}}{\varepsilon_j} - y_{j_\eta} \right|}{\eta}.
 \end{align*}
 Since $v_0$ is bounded, the LHS of the above inequality is bounded. Thus, at the limit as $\eta \longrightarrow 0$, we must have $\frac{x_j}{\eps_j}=y_j$. \footnote{Note that $$\Phi\left(x_0,\frac{x_0}{\varepsilon_j},t_0\right) =  u^{\varepsilon_j}(x_0, t_0) - \phi(x_0, t_0) - \eps_j v_0(y_0) \geq -c$$ for some cosntant $c$, but I honestly don't see the usefulness of this fact.} Thus \eqref{limit of xjn,yjn,tjn} is true.\\
-	
+
 \paragraph{\textbf{Step 2.}} Also, for any $(x,t)\in \overline{\Omega}\times [0,T]$ we have
 \begin{equation*}
 \Phi^{\eps_{j_\eta}}\left(x_{j_\eta}, {y_{j_\eta}}, t_{j_\eta}\right) \geq  \Phi^{\eps_{j_\eta}}\left(x, \frac{x}{\eps_j}, t\right) = u^{\eps_j}(x,t) -  \phi(x,t) -\eps_j v_0\left(\frac{x}{\eps_j}\right).
 \end{equation*}
 Since $v_0$ is bounded, let $\eta\longrightarrow 0$ and using the fact that $\left(x_{j_\eta}, {y_{j_\eta}}, t_{j_\eta}\right) \longrightarrow \left(x_j, \frac{x_j}{\varepsilon_j}, t_j\right)$, we obtain
 \begin{equation*}
-u^{\eps_j}\left(x_j,t_j\right) -  \phi\left(x_j,t_j\right) -\eps_j v_0\left(\frac{x_j}{\eps_j}\right) \geq u^{\eps_j}(x,t) -  \phi(x,t) -\eps_j v_0\left(\frac{x}{\eps_j}\right) 
+u^{\eps_j}\left(x_j,t_j\right) -  \phi\left(x_j,t_j\right) -\eps_j v_0\left(\frac{x_j}{\eps_j}\right) \geq u^{\eps_j}(x,t) -  \phi(x,t) -\eps_j v_0\left(\frac{x}{\eps_j}\right)
 \end{equation*}
 for all $(x,t)\in \overline{\Omega}\times [0,T]$. Thus the function
 \begin{equation*}
@@ -1116,13 +1116,13 @@ as $j \longrightarrow \infty$ since $u-\phi$ has strict maximum over $\overline{
 
 
 
-	
-	
-\paragraph{\textbf{Step 3.}} Fix $y=y_{j_\eta}$ then the function 
+
+
+\paragraph{\textbf{Step 3.}} Fix $y=y_{j_\eta}$ then the function
 \begin{equation*}
 (x,t)\mapsto \Phi^{\varepsilon_{j_\eta}}\left(x, y_{j_\eta}, t\right)\qquad\text{has a max at}\qquad \left(x_{j_\eta}, t_{j_\eta}\right).
 \end{equation*}
-So, 
+So,
 \begin{equation*}
 (x,t)\longmapsto u^{\eps_j}(x,t) - \phi(x,t) - \frac{\left|\frac{x}{\eps_j} - y_{j_\eta}\right|^2}{\eta}\qquad \text{has a max at}\qquad (x_{j_\eta}, t_{j_\eta}).
 \end{equation*}
@@ -1188,7 +1188,7 @@ Observe that from \eqref{first-equation} and the continuity of $H$ we have\footn
 \phi_t(x_j,t_j) + H(y_j,D\phi(x_j,t_j) + q) &\leq 0 \qquad\forall\; j\in \mathbb{N},\\
 H\left(y_j,p_0 + q\right) - H(y_j,D\phi(x_j,t_j) + q) &\longrightarrow 0 \qquad\text{as}\;j\longrightarrow\infty.
 \end{align*}
-Using this fact in \eqref{second-equation} and letting $j\longrightarrow \infty$, we obtain 
+Using this fact in \eqref{second-equation} and letting $j\longrightarrow \infty$, we obtain
 \begin{equation*}
 \phi_t(x_0,t_0) + \overline{H}(p_0) \leq 0.
 \end{equation*}
@@ -1210,12 +1210,12 @@ The deep part of this proof is that it passes the indifferentiability of $v_0$ t
 
 
 
-In this lecture, we study the properties of the effective Hamiltonian, $\overline{H}$. Recall that there exists a Lipschitz viscosity solution $v^\varepsilon$ to the following equation 
+In this lecture, we study the properties of the effective Hamiltonian, $\overline{H}$. Recall that there exists a Lipschitz viscosity solution $v^\varepsilon$ to the following equation
 \begin{equation*}
 \eps v^\eps(y) + H(y, p+Dv^\eps(y))=0 \text{ in } \R^n.
 \end{equation*}
 We also know that $\overline{H}(p)$ can be defined as the limit of $-\varepsilon_j v^{\varepsilon_j}(0)$ as $j\longrightarrow \infty$ in view of theorem \ref{theorem1}. We want to understand $\overline{H}$ qualitatively, quantitatively and numerically.
-\begin{proposition}\label{H bar as the limit large time} Consider the following Cauchy problem 
+\begin{proposition}\label{H bar as the limit large time} Consider the following Cauchy problem
 \begin{equation*}
 	\begin{cases}
 		w_t(y,t) + H(y, p + Dw(y))=0 \qquad&\text{in}\; \R^n\times (0,\infty)\\
@@ -1227,11 +1227,11 @@ Then
 \end{proposition}
 
 \begin{proof}
-We try to bound the solution, 
+We try to bound the solution,
 $$\text{subsolution} \le w(y,t) \le \text{supersolution}$$
 Let $v$ be the solution to the cell problem
 $$H(y, p+ Dv(y) = \overline{H}(p).$$
-Denote 
+Denote
 \begin{equation*}
 \phi^+(y,t)=v(y) + c -\overline{H}(p)t\qquad\text{and}\qquad\phi^-(y,t)=v(y) - c -\overline{H}(p)t.
 \end{equation*}
@@ -1255,7 +1255,7 @@ Finding $\overline{H}$ numerically is extremely hard.
 We also have some further more properties of the effective Hamiltonian
 
 \begin{exercise} \label{exercise4}
-Suppose $H\in\text{Lip}(\R^n\times\R^n)$ satisfies (H1)-(H2), i.e. coercivity and periodicity in $y$-coordinate. Then $\overline{H}$ is Lipschitz and coercive. 
+Suppose $H\in\text{Lip}(\R^n\times\R^n)$ satisfies (H1)-(H2), i.e. coercivity and periodicity in $y$-coordinate. Then $\overline{H}$ is Lipschitz and coercive.
 \end{exercise}
 
 
@@ -1305,19 +1305,19 @@ Assume $p\mapsto H(y,p)$ is convex. Then
 \begin{equation*}
 A = \inf \left\lbrace c\in \mathbb{R}:\exists\;v\in C(\mathbb{T}^n): H(y, p+Dv)\le c \text{ in }\mathbb{T}^n\;\text{in viscous sense} \right\rbrace
 \end{equation*}
-and 
+and
 \begin{equation*}
 B = \left\lbrace \sup_{y\in \mathbb{T}^n} H(y, p+D\phi(y)) : \phi\in C^1(\mathbb{T}^n) \right\rbrace.
 \end{equation*}
 \begin{itemize}
-\item Take $\phi \in C^1(\mathbb{T}^n)$, let 
+\item Take $\phi \in C^1(\mathbb{T}^n)$, let
 \begin{equation*}
 C=\max_{y\in \mathbb{T}^n} H(y, p + D\phi(y)).
 \end{equation*}
 So, $H(y, p+D\phi(y)) \le C$ in $\mathbb{T}^n$ and $C$ is admisible in the formula of $A$. Therefore, $B\subseteq A$ and thus
 $RHS = \inf B\ge \inf A=\overline{H}(p)$. \\
 
-\item We show that $RHS = \inf B\le \inf A= \overline{H}(p)=H(y, p + Dv(y))$ in $\mathbb{T}^n$. Note that $v$ is only Lipschitz so to make it smooth we convolute it. Take the standard mollifier 
+\item We show that $RHS = \inf B\le \inf A= \overline{H}(p)=H(y, p + Dv(y))$ in $\mathbb{T}^n$. Note that $v$ is only Lipschitz so to make it smooth we convolute it. Take the standard mollifier
 \begin{equation*}
 \phi\in C^\infty_c(\R^n)\quad \phi \ge 0\quad\text{and}\quad \int_{\R^n} \phi(x)\;dx =1.
 \end{equation*}
@@ -1340,7 +1340,7 @@ By Jensen's inequality for convex Hamiltonian $H$ in $p$, we obtain
 \overline{H}(p) &\geq H\left(x, \int_{B(x,C\varepsilon)} (p+Dv(y))\phi^\varepsilon(x-y)\;dy\right) - C'\varepsilon\\
  		   &= H(x,p+Dv^\varepsilon(y)) - C'\varepsilon \geq H(y,p+Dv^\varepsilon(y)) - 2C'\varepsilon.
 \end{align*}
-Thus there exists some constant $C'>0$ such that 
+Thus there exists some constant $C'>0$ such that
 \begin{equation*}
 \overline{H}(p) + 2C'\varepsilon \geq H(y,p+Dv^\varepsilon(y)).
 \end{equation*}
@@ -1410,7 +1410,7 @@ Assume $u(x_0)=\phi(x_0)$ and $u - \phi$ has a strict (local) maximum at $x_0$, 
 \begin{equation*}
 u(y) - \phi(y) < u(x_0) - \phi(x_0) = 0\qquad\forall\; y\in \overline{\Omega}\backslash \{x_0\}.
 \end{equation*}
-%From now, we only work on $\overline{\Omega}$ instead of $\mathbb{R}^n$, since we just need to prove that $u^\varepsilon -\phi$ has a local max in $\overline{\Omega}$. 
+%From now, we only work on $\overline{\Omega}$ instead of $\mathbb{R}^n$, since we just need to prove that $u^\varepsilon -\phi$ has a local max in $\overline{\Omega}$.
 Clearly $u$ is continuous on $\overline{\Omega}$ since $u^\varepsilon\longrightarrow u$ uniformly on $\overline{\Omega}$. Let $r>0$ small such that $B'(x_0,2r)\subset \Omega$. Clearly
 \begin{equation*}
 u(y) - \phi(y) < 0 \qquad\forall\;y\in S(x_0,r) = \{y\in \mathbb{R}^n:\Vert y-x_0\Vert = r\}.
@@ -1448,7 +1448,7 @@ Choose $\lambda_r = \min\{\zeta_r,\delta_r\}$, then for any $\varepsilon<\lambda
 \begin{equation}\label{exercise1_pt2}
 \alpha = \max_{\overline{\Omega}} \{u^\varepsilon(y) - \phi(y)\} \geq u^\varepsilon(x_0) - \phi(x_0) = u^\varepsilon(x_0) - u(x_0)  > \frac{\alpha_r}{2}.
 \end{equation}
-Combine \eqref{exercise1_pt1} and \eqref{exercise1_pt2} we obtain $x_\varepsilon$ must lie in $B(x_0,r)$. Therefore for any $\varepsilon>0$ small enough, $u^\varepsilon -\phi$ only has maximum over $\overline{\Omega}$ at some points $x_\varepsilon \in B(x_0,r)$. The rest is pretty simple, let $r = \frac{1}{n}$, then for each $n$, choose 
+Combine \eqref{exercise1_pt1} and \eqref{exercise1_pt2} we obtain $x_\varepsilon$ must lie in $B(x_0,r)$. Therefore for any $\varepsilon>0$ small enough, $u^\varepsilon -\phi$ only has maximum over $\overline{\Omega}$ at some points $x_\varepsilon \in B(x_0,r)$. The rest is pretty simple, let $r = \frac{1}{n}$, then for each $n$, choose
 \begin{equation*}
 \varepsilon_n = \min\left\lbrace \lambda_{\frac{1}{n}},\frac{1}{n} \right\rbrace  \Longrightarrow \varepsilon_n \longrightarrow 0 \quad\text{as}\;n\longrightarrow\infty
 \end{equation*}
@@ -1463,11 +1463,11 @@ as $n\longrightarrow \infty$.
 %%%%%%% PROOF 2
 \begin{proof}[\textbf{Proof 2}]
 	Observe that this theorem is wrong if $u^\eps -\phi$  and $u-\phi$ are not continous. One can construct a couterexample using a modified version of the topologist's sine curve (remove the largest points and give them different smaller values).
-	
+
 	So assume that $u^\eps$ and $u$ are continuous. The problem now is equivalent to the following problem:
-	
+
 	``Suppose $f$ is a continuous function with global max at $x_0$ and that $f^\eps$ are continuous function that converges uniformly to $f$ as $\eps\to 0$. Then for small enough $\eps$, $f^\eps$ has a max $x_\eps$ near $x_0$.''
-	
+
 	Pick $r_1>r_2>0$, we have that $f|_{\{x:r_2\le|x-x_0|\le r_1\}}$ has a max at $x'$. Furthermore, $f(x_0)>f(x')$. Define $h:=f(x_0)-f(x')$. For small enough $\eps'$, we have $|f^\eps(x)-f(x)|<\frac{h}{3}$ for $\eps<\eps'$. Also, for small enough $r$ (we can assume $r<r_1$), we have $|f(x_0)-f(x)|<\frac{h}{3}$ for $x\in B(x_0,r)$. Therefore, pick $x\in B(x_0,r)$ and $\eps<\eps'$, we have $|f(x_0)-f^\eps(x)|<\frac{2h}{3}$. Pick $y\in\{x:r_2\le|x-x_0|\le r_1\}$. We have $f^\eps(x)>f(x')+\frac{h}{3}>f(y)+\frac{h}{3}>f^\eps(y)$. This means that, $\max_{\overline{B(x_0,r_1-\delta)}} f^\eps(t) \ge f^\eps(x)>f^\eps(y)$ for arbitrary small $\delta>0$. This means that $\max_{\overline{B(x_0,r_2)}} f^\eps(t)$ must be at $t_0\in\overline{B(x_0,r_1)}\subseteq B(x_0, \frac{r_1+r_2}{2})$. Therefore, $f^\eps(t_0) \ge f^\eps(t)$ for all $t\in B(x_0, \frac{r_1+r_2}{2})$. Thus, $t_0$ is our desired $x_\eps$.
 
 (Not the cleanest proof but it works...)
@@ -1511,7 +1511,7 @@ H(y,0 + Dv(y)) = |Dv(y)| - W(y) = c \qquad\text{in}\;\mathbb{T} \tag{$E_0$}.
 
 \begin{proof}[\textbf{Proof 1.}]\quad
 \begin{itemize}
-\item[(a)] Assume $v$ is continuous a viscosity solution of \eqref{Ergodic_E_0_W}, since $\mathbb{T}$ is compact we have $v$ is bounded and archived its minimum, called 
+\item[(a)] Assume $v$ is continuous a viscosity solution of \eqref{Ergodic_E_0_W}, since $\mathbb{T}$ is compact we have $v$ is bounded and archived its minimum, called
 $$m = v(x_m) = \min \{v(x):x\in \mathbb{T}\} \leq v(x) \qquad\forall\;x\in \mathbb{T} $$
 \begin{itemize}
 \item Super-test. At $x_m$, we can see that $q = 0$ belong to $Dv^-(x_m)$. Thus
@@ -1528,7 +1528,7 @@ c\geq -W(x_n) \quad\forall\;n\in \mathbb{N} \Longrightarrow c \geq -W\left(1/4\r
 \end{equation*}
 
 \end{itemize}
-Thus $c = 0$ is the only possible value such that \eqref{Ergodic_E_0_W} has a viscosity solution. 
+Thus $c = 0$ is the only possible value such that \eqref{Ergodic_E_0_W} has a viscosity solution.
 
 \item[(b)] For each $c\in \left[\frac{1}{2},\frac{3}{4}\right]$, consider the following function
 \begin{align*}
@@ -1571,7 +1571,7 @@ p\in D^+u_c(c) \Longrightarrow |p|\leq \frac{3}{2}-2c  = \frac{3-4c}{2} = W(c).
 \vspace*{0.2cm}
 
 
-\paragraph{\textbf{Case $x = \frac{3}{2}-c$.}} 
+\paragraph{\textbf{Case $x = \frac{3}{2}-c$.}}
 Since $u_c$ and $W$ are symmetric through the line $x = \frac{3}{4}$, this case is completely similar to case $x= c$.
 \end{itemize}
 \end{proof}
@@ -1632,12 +1632,12 @@ By assumption, there exists a constant $C>0$ such that
 \begin{equation*}
 |H(x,p) - H(x,q)|\leq C\Vert p-q\Vert\qquad\forall\;x,p,q\in \mathbb{R}^n.
 \end{equation*}
-We will prove the Lipschitz property of $\overline{H}$ by using the representation 
+We will prove the Lipschitz property of $\overline{H}$ by using the representation
 \begin{equation}\label{nonconvex - representation of effective H}
 \overline{H}(q) = \inf \left\lbrace c\in \mathbb{R}: \exists\;v\in C(\mathbb{T}^n): H(x,q+Dv(x))\leq c\;\text{in}\;\mathbb{T}^n\;\text{in viscous sense}\right\rbrace .
 \end{equation}
 \vspace*{0.2cm}
-\paragraph{\textbf{Step 1.}} First of all, we prove that 
+\paragraph{\textbf{Step 1.}} First of all, we prove that
 \begin{equation}\label{sub - Lipschitz od effective H for p and 0}
 \overline{H}(p) - \overline{H}(q) \leq C\Vert p - q\Vert.
 \end{equation}
@@ -1656,7 +1656,7 @@ H(x,p+Du(x)) \leq C\Vert p-q\Vert + \overline{H}(q)
 \end{equation}
 in the viscous sense. Indeed, for $\zeta\in D^+u(x)$, by the Lipschitz's property of $H$, we have
 \begin{align*}
-|H(x,p+\zeta) - H(x,q+\zeta)| \leq C\Vert p-q\Vert &\Longrightarrow 
+|H(x,p+\zeta) - H(x,q+\zeta)| \leq C\Vert p-q\Vert &\Longrightarrow
 H(x,p+\zeta)\leq C\Vert p-q\Vert + H(x,q+\zeta)   \\
  &\Longrightarrow H(x,p+\zeta)\leq  C\Vert p-q\Vert + \overline{H}(q) \quad\quad \forall\; \zeta\in D^+u(x)\\
  &\Longrightarrow  H(x,p+Du(x)) \leq C\Vert p-q\Vert + \overline{H}(q) \quad\text{(vis-sense)}.
@@ -1667,7 +1667,7 @@ Thus \eqref{Lipschitz H(x,p+delta) leq C|p| + effective H(0) -- viscous sense} i
 \end{equation*}
 %\item For $\delta\in D^-u(x)$, by the Lipschitz's property of $H$, we have
 %\begin{align*}
-%|H(x,p+\delta) - H(x,\delta)| \leq C\Vert p\Vert &\Longrightarrow 
+%|H(x,p+\delta) - H(x,\delta)| \leq C\Vert p\Vert &\Longrightarrow
 %H(x,\delta)\leq C\Vert p\Vert + H(x,p+\delta)   \\
 % &\Longrightarrow \;\;\overline{H}(0)\;\;\, \leq  C\Vert p\Vert + H(x,p+\delta) \quad\quad \forall\; \delta\in D^-u(x)\\
 % &\Longrightarrow \;\; \overline{H}(0)\;\;\, \leq C\Vert p\Vert + H(x,p+Du(x)) \quad\text{(vis-sense)}
@@ -1692,7 +1692,7 @@ We start with a similar result as representation formula of $\overline{H}$ in \e
 \begin{equation}\label{nonconvex - representation of effective H - sup - inf}
 \overline{H}(q) = \sup \left\lbrace c\in \mathbb{R}: \exists\;v\in C(\mathbb{T}^n): H(x,q+Dv(x))\geq c\;\text{in}\;\mathbb{T}^n\;\text{in viscous sense}\right\rbrace .
 \end{equation}
-Indeed, define 
+Indeed, define
 \begin{equation*}
 \alpha = \sup \left\lbrace c\in \mathbb{R}: \exists\;v\in C(\mathbb{T}^n): H(x,q+Dv(x))\geq c\;\text{in}\;\mathbb{T}^n\;\text{in viscous sense}\right\rbrace .
 \end{equation*}
@@ -1709,15 +1709,15 @@ Since $u,w$ are bounded, we can take $\varepsilon>0$ such that
 \varepsilon u(x) +H(x,p+Du(x)) < \frac{c+\overline{H}(p)}{2} < \varepsilon w(x) + H(x,p+Dw(x)).
 \end{equation*}
 By comparison principle, we have $u\leq w$ in $\mathbb{T}^n$, it's  a contradiction since we can always add a constant to make $w<u$.\\
-Now using thus representation, let $\varphi = C\in  C^1(\mathbb{T}^n)$, and define 
+Now using thus representation, let $\varphi = C\in  C^1(\mathbb{T}^n)$, and define
 \begin{equation*}
 c = \min_{x\in \mathbb{T}^n} H(x,p+D\varphi(x)) = \min_{x\in \mathbb{T}^n} H(x,p).
 \end{equation*}
 Then, $c$ is admissible in the formula of the representation \eqref{nonconvex - representation of effective H - sup - inf}, so that $\overline{H}(p)\geq c$, i.e
 \begin{equation}\label{effective H(p) geq min x in Torus H(x,p)}
-\overline{H}(p) \geq \min_{x\in \mathbb{T}^n} H(x,p). 
+\overline{H}(p) \geq \min_{x\in \mathbb{T}^n} H(x,p).
 \end{equation}
-Now combine \eqref{effective H(p) geq min x in Torus H(x,p)} with \eqref{rewrite the uniformly in x coercivity of H} we obtain 
+Now combine \eqref{effective H(p) geq min x in Torus H(x,p)} with \eqref{rewrite the uniformly in x coercivity of H} we obtain
 \begin{equation*}
 \lim_{|p|\longrightarrow \infty} \overline{H}(p) \geq \lim_{|p|\longrightarrow \infty} \left( \min_{x\in \mathbb{T}^n} H(x,p) \right) = +\infty.
 \end{equation*}
@@ -1742,22 +1742,22 @@ which implies
 	\begin{equation}
 	 \eps u^\eps+C|p-q| + H(x, Du^\eps +q) \ge 0. \label{inequality_1}
 	\end{equation}
-	Thus, $u^\eps + \frac{C|p-q|}{\eps}$ is a supersolution to (29) and 
+	Thus, $u^\eps + \frac{C|p-q|}{\eps}$ is a supersolution to (29) and
 	$$u^\eps + \frac{C|p-q|}{\eps}\ge v^\eps,$$
-	meaning $$\eps v^\eps-\eps u^\eps \le C|p-q|.$$ 
-	
+	meaning $$\eps v^\eps-\eps u^\eps \le C|p-q|.$$
+
 	Similarly, we obtain
 	$$-C|p-q| \le \eps v^\eps-\eps u^\eps .$$
 	Thus, $|\eps u^\eps - \eps v^\eps| \le C|p-q|$. Let $\{ \eps_j\}$ be a sequence such that $\eps_j u^{\eps_j} \to \bar{H}(p)$ and $\eps_j v^{\eps_j} \to \bar{H}(q)$, we then have
 	$$|\bar{H}(p)- \bar{H}(q)| \le C|p-q|.$$
-		
-	Coercivity part: 
+
+	Coercivity part:
 
 	Let $M>0$. Pick $|p|$ big enough so that $H(x,p)>M$.
-		
+
 	Let $u$ be the solution to the cell problem
 	$$H(x, Du+p) = \bar{H}(p).$$
-	Since $u$ is continuous and periodic, $u$ has a max at $x_0$. So consider the test function $\phi(x)={u(x_0)}$. We have that, by definition of viscosity solution, 
+	Since $u$ is continuous and periodic, $u$ has a max at $x_0$. So consider the test function $\phi(x)={u(x_0)}$. We have that, by definition of viscosity solution,
 	$$M< H(x,D\phi(x_0)+p)=H(x,p) \le \bar{H}(p).$$
 \end{proof}
 
@@ -1775,7 +1775,7 @@ Assume $p\longrightarrow H(y,p)$ is convex for any $y\in \mathbb{T}^n$, then $p\
 
 \vspace*{0.2cm}
 
-\begin{proof}[\textbf{Proof 1.}] 
+\begin{proof}[\textbf{Proof 1.}]
 %For $u\in C(\mathbb{T}^n)$ and $F:\mathbb{T}^n\times \mathbb{R}\times \mathbb{R}^n\longrightarrow \mathbb{R}$ is continous, we define
 %\begin{align*}
 %F(x,u(x),Du(x)) \leq C\;\text{in the viscous sense}\; &\Longleftrightarrow F(x,u(x),p) \leq C \qquad\forall\; p\in D^+u(x)\\
@@ -1806,7 +1806,7 @@ H\left(x,\lambda p +(1-\lambda)q+ Dw\right) \leq \lambda \overline{H}(p) + (1-\l
 \end{equation}
 To do this, we need to show that for any $\zeta\in D^+w(x)$, then
 \begin{equation*}
-H\left(x,\lambda p +(1-\lambda)q+ \zeta\right) \leq \lambda \overline{H}(p) + (1-\lambda)C. 
+H\left(x,\lambda p +(1-\lambda)q+ \zeta\right) \leq \lambda \overline{H}(p) + (1-\lambda)C.
 \end{equation*}
 \vspace*{0.1cm}
 \paragraph{\textbf{Lemma.}} \textit{Let $u\in C(\Omega)$, then
@@ -1854,7 +1854,7 @@ and $\overline{H}$ is convex.
 
 %%%%PROOF 2
 \begin{proof}[\textbf{Proof 2}]
-Suppose $\bar{H}(p)$ is not convex.  There are $p$, $q$ such that 
+Suppose $\bar{H}(p)$ is not convex.  There are $p$, $q$ such that
 	\begin{equation}
 		\bar{H}((1-k)p + kq) > (1-k)\bar{H}(p)+k\bar{H}(q)
 	\end{equation}
@@ -1866,7 +1866,7 @@ Suppose $\bar{H}(p)$ is not convex.  There are $p$, $q$ such that
 	$$H(x,Dv + p)= \bar{H}(p)$$
 	and $$H(x,Dv + q)= \bar{H}(q)$$
 	respectively.
-	(32) Implies that 
+	(32) Implies that
 	\begin{eqnarray*}
 		\bar{H}((1-k)p + kq)	&>& 	(1-k)H(x,Dv_p + p)+ kH(x,Dv_q + q)\\
 						&\ge&	H(x, (1-k)(Dv_p + p) + k(Dv_q +q)) \\
@@ -1882,4 +1882,4 @@ Suppose $\bar{H}(p)$ is not convex.  There are $p$, $q$ such that
 
 
 
-\end{document}  
+\end{document}
